@@ -2,12 +2,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cyan: '#9cdbff',
+        primary: '#050d0f',
+        app: {
+          default: '#ddca88',
+          "1": '#88754b'
+        },
+        'divider-primary': '#654423'
       },
       spacing: {
-        '96': '24rem',
-        '128': '32rem',
+        '96': '6rem',
       },
+      height: {
+        'navbar': '64px',
+        'navbar-md': '96px',
+        'navbar-lg': '144px',
+        'navbar-xl': '188px',
+        'footer': '64px',
+        'footer-md': '96px',
+        'footer-lg': '144px',
+        'footer-xl': '188px'
+      }
     },
   },
   fontFamily: {
