@@ -1,6 +1,6 @@
 <template>
   <div class='navbar w-screen bg-cover h-navbar md:h-navbar-md lg:h-navbar-lg xl:h-navbar-xl'>
-    <img class='logo' src='/images/app_logo.png' />
+    <img class='logo' src='/nuxt-test/images/app_logo.png' />
     <div class="divider w-screen "></div>
   </div>
 </template>
