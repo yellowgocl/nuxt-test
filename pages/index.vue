@@ -20,6 +20,12 @@ export default {
   components: {
     Navbar, Card, 'app-footer': Footer
   },
+  asyncData({ app }) {
+    // app.$api.request(app.$api.urls.TEST)
+  },
+  mounted() {
+    this.$api.request(this.$api.urls.TEST)
+  },
   data() {
     return {
       cards: [
@@ -28,7 +34,8 @@ export default {
         
       ]
     }
-  }
+  },
+  
 }
 </script>
 

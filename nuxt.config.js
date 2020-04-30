@@ -1,15 +1,16 @@
 
-
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ?  {
-  base: '/nuxt-test/'
-} : {}
+const { axios } = require("./config");
+const env = require("./env");
+// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ?  {
+//   base: '/nuxt-test/'
+// } : {}
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   router: {
-    ...routerBase
+    base: env.NODE_ENV == 'deploy' ? process.env.npm_package_name : ''
   },
   head: {
     title: process.env.npm_package_name || '',
@@ -36,6 +37,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios', '~/plugins/app'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -48,6 +50,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    "@nuxtjs/axios", 
+    "@nuxtjs/dotenv"
   ],
   /*
   ** Build configuration
