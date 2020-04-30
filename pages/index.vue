@@ -18,7 +18,6 @@ export default {
   },
   async asyncData({ app }) {
     let data = await app.$api.request(app.$api.urls.TEST)
-    console.info(data)
     return {
       cards: data.info
     }
@@ -28,19 +27,7 @@ export default {
   },
   data() {
     return {
-      cards: [
-        { image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },
-        { image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },{ image: 'https://placem.at/places?h=400&random=1&txt', name: 'Category Seed1' },
-        { image: 'https://placem.at/places?h=400&random=2&txt', name: 'Category Seed2' },
-      ]
+      cards: []
     }
   },
   
