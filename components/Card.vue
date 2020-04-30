@@ -1,6 +1,6 @@
 <template>
     <div class="card bg-indigo-200 bg-cover bg-center" :style='bindStyle'>
-        <div class="card-title font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl p-2">{{data.name}}</div>
+        <div class="card-title truncate font-bold absolute inset-x-card bottom-card bottom-0 text-lg md:text-xl p-2">{{data.name}}</div>
     </div>
 </template>
 <style scoped>
@@ -8,13 +8,13 @@
     position: relative;
 }
 .card .card-title{
-    position: absolute;
+    /* position: absolute;
     bottom: 2vw;
     left: 2vw;
     right: 2vw;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: nowrap; */
 }
 </style>
 <script>

@@ -16,6 +16,9 @@ module.exports = {
         },
         'divider-primary': '#654423'
       },
+      inset: {
+       'card': '0.5rem'
+      },
       spacing: {
         '96': '6rem',
         ...footer
