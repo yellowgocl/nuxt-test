@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar class='sticky'></navbar>
+    <navbar class='sticky top-0 z-10'></navbar>
     <div class="viewport pb-footer md:pb-footer-md lg:pb-footer-lg xl:pb-footer-xl"><nuxt /></div>
     <app-footer class='fixed inset-x-0 bottom-0'></app-footer>
   </div>
