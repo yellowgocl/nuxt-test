@@ -5,16 +5,22 @@ let footer = {
   'footer-lg': '36px',
   'footer-xl': '44px'
 }
+let colors = {
+  primary: '#050d0f',
+  app: {
+    default: '#ddca88',
+    "1": '#88754b'
+  },
+  'divider-primary': '#654423'
+}
 module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#050d0f',
-        app: {
-          default: '#ddca88',
-          "1": '#88754b'
-        },
-        'divider-primary': '#654423'
+        ...colors
+      },
+      backgroundColor: {
+        ...colors
       },
       inset: {
        'card': '0.5rem'

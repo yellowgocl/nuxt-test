@@ -14,13 +14,14 @@ body{
 }
 
 .action-main{
-    @apply font-bold text-lg text-center px-2 py-2;
+    @apply font-bold text-lg text-center px-2 py-2 bg-app-1;
     background-image: linear-gradient(0deg, #ddca88, #88754b );
     border-radius: 1rem;
+    transition: all .3s ease-out;
 }
 .action-main:hover{
-    @apply shadow-lg;
-    background: #ddca88;
+    background: none;
+    @apply shadow-lg bg-app;
 }
 .action-main.lg{
     @apply px-2 py-2 text-3xl;
