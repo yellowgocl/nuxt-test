@@ -1,3 +1,10 @@
+
+let footer = {
+  'footer': '36px',
+  'footer-md': '36px',
+  'footer-lg': '36px',
+  'footer-xl': '44px'
+}
 module.exports = {
   theme: {
     extend: {
@@ -11,16 +18,14 @@ module.exports = {
       },
       spacing: {
         '96': '6rem',
+        ...footer
       },
       height: {
         'navbar': '64px',
         'navbar-md': '96px',
         'navbar-lg': '144px',
         'navbar-xl': '188px',
-        'footer': '64px',
-        'footer-md': '96px',
-        'footer-lg': '144px',
-        'footer-xl': '188px'
+        ...footer
       }
     },
   },
