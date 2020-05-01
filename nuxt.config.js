@@ -1,16 +1,16 @@
 
 const { axios } = require("./config");
 const env = require("./env");
-// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ?  {
-//   base: '/nuxt-test/'
-// } : {}
+const routerBase = process.env.NODE_ENV == 'deploy' ?  {
+  base: '/nuxt-test/'
+} : {}
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   router: {
-    base: env.NODE_ENV == 'deploy' ? process.env.npm_package_name : ''
+    ...routerBase
   },
   head: {
     title: process.env.npm_package_name || '',

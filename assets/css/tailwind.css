@@ -12,20 +12,17 @@ body{
 .app-view{
     
 }
-.card{
-    height: 16rem;
-}
-.card-title {
-    text-align: center;
-    background-image: linear-gradient(40deg, #88754b, #ddca88, #88754b );
-}
 
 .action-main{
-    @apply font-bold text-lg text-center px-2 py-2;
+    @apply font-bold text-lg text-center px-2 py-2 bg-app-1;
     background-image: linear-gradient(0deg, #ddca88, #88754b );
     border-radius: 1rem;
+    transition: all .3s ease-out;
 }
- 
+.action-main:hover{
+    background: none;
+    @apply shadow-lg bg-app;
+}
 .action-main.lg{
     @apply px-2 py-2 text-3xl;
 }

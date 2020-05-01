@@ -1,26 +1,40 @@
+
+let footer = {
+  'footer': '36px',
+  'footer-md': '36px',
+  'footer-lg': '36px',
+  'footer-xl': '44px'
+}
+let colors = {
+  primary: '#050d0f',
+  app: {
+    default: '#ddca88',
+    "1": '#88754b'
+  },
+  'divider-primary': '#654423'
+}
 module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#050d0f',
-        app: {
-          default: '#ddca88',
-          "1": '#88754b'
-        },
-        'divider-primary': '#654423'
+        ...colors
+      },
+      backgroundColor: {
+        ...colors
+      },
+      inset: {
+       'card': '0.5rem'
       },
       spacing: {
         '96': '6rem',
+        ...footer
       },
       height: {
         'navbar': '64px',
         'navbar-md': '96px',
         'navbar-lg': '144px',
         'navbar-xl': '188px',
-        'footer': '64px',
-        'footer-md': '96px',
-        'footer-lg': '144px',
-        'footer-xl': '188px'
+        ...footer
       }
     },
   },
