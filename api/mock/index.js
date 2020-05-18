@@ -35,9 +35,9 @@ const getData = () => {
         let mock = mocks[key]
         if (!mock) 
             continue;
-        
         result[`${method} ${url}`] = mock
     }
+    // console.info(result)
     return result
 }
 

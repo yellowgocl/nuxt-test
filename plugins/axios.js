@@ -8,7 +8,7 @@ export default ({ $axios, redirect }) => {
     })
     $axios.onResponse(response => {
         let data = response.data
-        console.info(response)
+        // console.info(response)
         if (data && data.code == 200) {
             return data.data
         } else {

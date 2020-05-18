@@ -1,5 +1,5 @@
 function parseMethod(option) {
-    let method = option ? option.method : undefined
+    let method = option ? option.method || option : undefined
     if(!method || typeof method != 'string') {
         return 'GET'
     }

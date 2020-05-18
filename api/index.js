@@ -12,7 +12,6 @@ const request = function(url, method, option = {}) {
     let request = {
         url, method, ...option
     }
-    console.info(url, method)
     return client(request)
 }
 
