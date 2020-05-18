@@ -16,11 +16,18 @@ export default {
   components: {
     Card
   },
+  async asyncData({ app }) {
+    let data = await app.$api.request(app.$api.urls.TEST)
+    return {
+      cards: data.info
+    }
+    // return {}
+  },
   mounted() {
     this.$api.request(this.$api.urls.LOGIN, 'POST')
-    this.$api.request(this.$api.urls.TEST).then(res => {
-      this.cards = res.info
-    })
+    // this.$api.request(this.$api.urls.TEST).then(res => {
+    //   this.cards = res.info
+    // })
   },
   data() {
     return {

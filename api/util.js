@@ -15,10 +15,13 @@ function parseUri(opt) {
         } else {
             opt.mock = opt.mock == undefined || opt.mock == null ? true : opt.mock
         }
-        if (typeof opt.mock == 'boolean' || typeof opt.mock == 'number')
-            result = opt.mock ? `/mock${opt.url}` : opt.url
-        else
+        if (typeof opt.mock == 'boolean' || typeof opt.mock == 'number'){
+            let mockServer = process.env.MOCK_SERVER || ''
+            result = opt.mock ? `${mockServer}/mock${opt.url}` : opt.url
+        }
+        else {
             result = opt.mock || opt.url
+        }
         // console.info(result)
     }
     return result
