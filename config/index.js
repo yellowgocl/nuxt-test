@@ -1,3 +1,5 @@
 const axios = require('./axios')
+const proxy = require('./proxy')
 exports.axios = axios
-module.exports = { axios }
+exports.proxy = proxy
+module.exports = { axios, proxy }

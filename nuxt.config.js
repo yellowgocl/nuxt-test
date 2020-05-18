@@ -1,14 +1,18 @@
 
-const { axios } = require("./config");
+const { axios, proxy } = require("./config");
 const env = require("./env");
 const routerBase = process.env.NODE_ENV == 'deploy' ?  {
   base: '/nuxt-test/'
 } : {}
+console.info(axios)
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
+  env,
+  axios,
+  proxy,
   router: {
     ...routerBase
   },

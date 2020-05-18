@@ -25,6 +25,7 @@ export default {
   },
   mounted() {
     this.$api.request(this.$api.urls.LOGIN, 'POST')
+    // let data = this.$api.request(this.$api.urls.TEST)
   },
   data() {
     return {

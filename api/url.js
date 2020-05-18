@@ -1,7 +1,7 @@
 
 const mod = {
-    LOGIN: { url: '/user/login', method: 'post' },
-    TEST: '/test'
+    LOGIN: { url: '/api/room/info/list', method: 'get', mock: false },
+    TEST: { url: '/api/test' }
 }
 
 exports.url = mod
