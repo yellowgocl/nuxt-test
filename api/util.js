@@ -7,23 +7,32 @@ function parseMethod(option) {
     method = method.toUpperCase()
     return (method == 'POST' || method == 'GET' || method == 'DELETE' || method == 'PUT') ? method : 'GET'
 }
-function parseUri(opt) {
+function getUrl(opt) {
     let result = opt;
+    if (typeof opt == 'object') {
+        result = opt.url || opt
+    }
+    return result
+}
+function parseUri(opt) {
+    let result = getUrl(opt);
     if (typeof opt == 'object') {
         if (/^true$/i.test(process.env.IS_PRODUCTION)) {
             opt.mock = false
         } else {
             opt.mock = opt.mock == undefined || opt.mock == null ? true : opt.mock
+            if (typeof opt.mock == 'string') {
+                opt.mock = `/mock${opt.mock}`
+            }
         }
         if (typeof opt.mock == 'boolean' || typeof opt.mock == 'number'){
             let mockServer = process.env.MOCK_SERVER || ''
-            result = opt.mock ? `${mockServer}/mock${opt.url}` : opt.url
+            result = opt.mock ? `${mockServer}/mock${opt.url}` : result
         }
         else {
-            result = opt.mock || opt.url
+            result = opt.mock || result
         }
-        // console.info(result)
     }
     return result
 }
-module.exports = { parseMethod, parseUri }
+module.exports = { parseMethod, parseUri, getUrl }

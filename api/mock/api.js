@@ -23,7 +23,20 @@ const mod = {
                 "anchor_img": mockjs.Random.image('125x125', '头像')
             }]
         }
-    })
+    }),
+    GOODS: (req, res) => {
+        let id = req.query.id || req.params.id || req.body.id || 0
+        return res.json(mockjs.mock({
+            code: 200,
+            message: 'ok',
+            data: {
+                'id': id,
+                'name': `商品-${id}`,
+                'image': 'https://placem.at/places?h=400&random=@id&txt=""',
+                'price|100-999.1-10': 100, 
+            }
+        }))
+    }
 }
 
 exports.url = mod
