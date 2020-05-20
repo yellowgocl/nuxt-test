@@ -1,9 +1,11 @@
 
 /* purgecss start ignore */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components'; */
 /* purgecss end ignore */
-@import 'tailwindcss/utilities';
+/* @import 'tailwindcss/utilities'; */
+
+@tailwind base;
 
 body{
     @apply bg-primary;
@@ -11,7 +13,6 @@ body{
 .app-view{
     
 }
-
 .action-main{
     @apply font-bold text-lg text-center px-2 py-2 bg-app-1;
     background-image: linear-gradient(0deg, #ddca88, #88754b );
@@ -25,3 +26,7 @@ body{
 .action-main.lg{
     @apply px-2 py-2 text-3xl;
 }
+
+@tailwind components;
+
+@tailwind utilities;

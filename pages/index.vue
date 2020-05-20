@@ -1,6 +1,6 @@
 <template>
   <div class="bg-primary pb-4">
-      <div class="container mx-auto">
+      <div class="container box mx-auto">
         <div class="px-2 lg:px-96 mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             <card class='' v-for="(item) in cards" :key='item.name' :data='item'></card>
         </div>
@@ -38,14 +38,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  
+.box {
+  @apply m-4
 }
 
 </style>
