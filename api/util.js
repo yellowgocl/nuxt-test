@@ -26,8 +26,8 @@ function parseUri(opt) {
             }
         }
         if (typeof opt.mock == 'boolean' || typeof opt.mock == 'number'){
-            let mockServer = process.env.MOCK_SERVER || ''
-            result = opt.mock ? `${mockServer}/mock${opt.url}` : result
+            // let mockServer = process.env.MOCK_SERVER || ''
+            result = opt.mock ? `/mock${opt.url}` : result
         }
         else {
             result = opt.mock || result

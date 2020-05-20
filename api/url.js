@@ -1,6 +1,6 @@
 
 const mod = {
-    LOGIN: { url: '/api/room/info/list', method: 'get', mock: false },
+    LOGIN: { url: '/api/v3/token', method: 'post', mock: false },
     TEST: { url: '/api/test' },
     GOODS: { url: '/api/goods', method: 'post' }
 }
