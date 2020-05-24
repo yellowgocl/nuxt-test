@@ -17,10 +17,10 @@
     </div>
 </template>
 <script>
-import accordion from '@/components/accordion'
+import Accordion from '@/components/Accordion'
 export default {
     components: {
-        accordion
+        Accordion
     },
     data() {
         return {

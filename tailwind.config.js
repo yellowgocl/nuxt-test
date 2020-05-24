@@ -1,18 +1,18 @@
+/*
+** TailwindCSS Configuration File
+**
+** Docs: https://tailwindcss.com/docs/configuration
+** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+*/
 
-let footer = {
-  'footer': '36px',
-  'footer-md': '36px',
-  'footer-lg': '36px',
-  'footer-xl': '44px'
-}
 let colors = {
-  primary: '#050d0f',
-  app: {
-    default: '#ddca88',
-    "1": '#88754b'
-  },
-  'divider-primary': '#654423'
+  primary: '#1a65cb',
+  secondary: '#e12d2d',
+  n0: '#f3f3f3',
+  n1: '#ebebeb',
+  n2: '#393939',
 }
+
 module.exports = {
   theme: {
     extend: {
@@ -22,26 +22,21 @@ module.exports = {
       backgroundColor: {
         ...colors
       },
-      inset: {
-       'card': '0.5rem'
+      borderColor:{
+        ...colors
       },
-      spacing: {
-        '96': '6rem',
-        ...footer
+      placeholderColor:{
+        ...colors
+      },
+      fontFamily: {
+        display: ['Roboto', 'sans-serif'],
+        body: ['Roboto', 'sans-serif'],
       },
       height: {
-        'navbar': '64px',
-        'navbar-md': '96px',
-        'navbar-lg': '144px',
-        'navbar-xl': '188px',
-        ...footer
+        'card--index': '6.68rem'
       }
-    },
-  },
-  fontFamily: {
-    display: ['Roboto', 'sans-serif'],
-    body: ['Roboto', 'sans-serif'],
+    }
   },
   variants: {},
-  plugins: [],
+  plugins: []
 }

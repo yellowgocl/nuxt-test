@@ -1,20 +1,9 @@
 
-const { axios, proxy } = require("./config");
-const env = require("./env");
-const routerBase = process.env.NODE_ENV == 'deploy' ?  {
-  base: '/nuxt-test/'
-} : {}
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
-  env,
-  axios,
-  proxy,
-  router: {
-    ...routerBase
-  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -40,7 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/axios', '~/plugins/app'
+    '~/plugins/components.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,8 +42,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/axios", 
-    "@nuxtjs/dotenv"
   ],
   /*
   ** Build configuration

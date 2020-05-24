@@ -1,27 +1,46 @@
-
 /* purgecss start ignore */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components'; */
 /* purgecss end ignore */
-@import 'tailwindcss/utilities';
+/* @import 'tailwindcss/utilities'; */
 
-body{
-    @apply bg-primary;
-}
-.app-view{
-    
-}
+/* fallback */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../../static/font/iconfont.eot');
+    src: url('../../static/font/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../../static/font/iconfont.woff2') format('woff2'),
+        url('../../static/font/iconfont.woff') format('woff'),
+        url('../../static/font/iconfont.ttf') format('truetype'),
+        url('../../static/font/iconfont.svg#iconfont') format('svg');
+  }
 
-.action-main{
-    @apply font-bold text-lg text-center px-2 py-2 bg-app-1;
-    background-image: linear-gradient(0deg, #ddca88, #88754b );
-    border-radius: 1rem;
-    transition: all .3s ease-out;
-}
-.action-main:hover{
-    background: none;
-    @apply shadow-lg bg-app;
-}
-.action-main.lg{
-    @apply px-2 py-2 text-3xl;
-}
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 1.2rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .list_name{
+    @apply my-4 text-primary text-base;
+  }
+  .gray_box{
+    @apply bg-n0 rounded-md my-4;
+  }
+  .gray_border_box{
+    @apply border-n0 rounded-md my-4 border px-2;
+  }
+  .gray_title{
+    @apply my-4 text-base text-n2; 
+  }
+  .center_title{
+    @apply py-3 text-xs text-n2 text-center border-b border-n1; 
+  }
+
+@tailwind base;
+
+/* 全局样式定义 */
+
+@tailwind components;
+@tailwind utilities;

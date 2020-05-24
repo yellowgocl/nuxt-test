@@ -1,29 +1,20 @@
 {
-  "name": "nuxt-test",
+  "name": "management_system",
   "version": "1.0.0",
-  "description": "My supreme Nuxt.js project",
-  "author": "got.wong",
+  "description": "n",
+  "author": "color",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "mock": "mocker ./api/mock",
-    "build:gh-pages": "NODE_ENV=deploy nuxt build",
-    "generate:gh-pages": "NODE_ENV=deploy nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.2",
-    "@nuxtjs/dotenv": "^1.4.1",
+    "lodash": "^4.17.15",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^1.0.0",
-    "cross-env": "^7.0.2",
-    "push-dir": "^0.4.1",
-    "mocker-api": "^2.0.4",
-    "mockjs": "^1.1.0"
+    "@nuxtjs/tailwindcss": "^1.0.0"
   }
 }

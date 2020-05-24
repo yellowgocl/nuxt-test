@@ -1,51 +1,50 @@
 <template>
-  <div class="bg-primary pb-4">
-      <div class="container mx-auto">
-        <div class="px-2 lg:px-96 mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <card class='' v-for="(item) in cards" :key='item.name' :data='item'></card>
-        </div>
-        <div class="pad py-8"></div>
-        <div class="action-main w-2/3 mx-auto lg mt-8">Back</div>
-      </div>
+  <div class="container bg-n0 h-screen">
+    <div class="panel  grid grid-cols-3 gap-4 p-4">
+      <template v-for="(item, index) in entries">
+        <a :href='item.url' :key='item.name + index' class="card pb-2 flex flex-col justify-center items-center h-card--index bg-white rounded-md relative ">
+          <span v-if='!!item.badge' class="badge text-xs text-white text-center bg-red-600 rounded-full absolute">{{item.badge}}</span>
+          <img class="pic flex-1 w-10 object-center object-contain" :src="item.image" /> 
+          <span class="word text-center text-base text-n2">{{item.name}}</span>
+        </a>
+      </template>
+    </div>
+    
   </div>
 </template>
 
 <script>
-import Card from '~/components/Card.vue'
 export default {
-  components: {
-    Card
-  },
-  async asyncData({ app }) {
-    // let data = await app.$api.request(app.$api.urls.TEST)
-    // return {
-    //   cards: data.info
-    // }
-    return {}
-  },
-  mounted() {
-    this.$api.request(this.$api.urls.LOGIN, 'POST')
-    this.$api.request(this.$api.urls.TEST).then(res => {
-      this.cards = res.info
-    })
-  },
   data() {
     return {
-      cards: []
+      entries: [
+        { name: '合同审批', image: '/images/index_icon0.png' , badge: 20, url: '/inner0' },
+        { name: '订单审批', image: '/images/index_icon1.png' , badge: 10,  url: 'inner1' },
+        { name: '申购审批', image: '/images/index_icon2.png' , badge: 20, url: '/login' },
+        { name: '招标审批', image: '/images/index_icon3.png' , badge: 0 , url: '/login' },
+        { name: '评标审批', image: '/images/index_icon4.png' , badge: 20, url: '/login' },
+        { name: '付款审批', image: '/images/index_icon5.png' , badge: 0 , url: '/login' },
+        { name: '出库审批', image: '/images/index_icon6.png' , badge: 0 , url: '/login' },
+        { name: '其他⼊库审批', image: '/images/index_icon7.png' , badge: 0 , url: '/login' },
+      ]
     }
   },
-  
+  methods: {
+    getImage(url){
+      return require(url)
+    },
+    onHandle(flag) {
+      console.info(flag)
+    }
+  }
 }
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+<style scoped>
+.badge{
+  right: 0.25rem;
+  top: 0.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
-*/
-.container {
-  
-}
-
 </style>
