@@ -1,13 +1,13 @@
 <template>
     <div class="card-group">
         <template v-for="(item, index) in data">
-            <card v-if='!!type' :key='item+index' :data='item' v-model="item.selected" @input="onChange(item, index, $event)"></card>
+            <card v-if='!!type' :key='item+index' :data='item' :value="hasSelected(item)" @input="onChange(item, index, $event)"></card>
             <card v-else :key='item+index' :data='item' :value='selected == index' @input="onChange(item, index, $event)"></card>
         </template>
     </div>
 </template>
 <script>
-import { remove, concat, reduce } from 'lodash'
+import { remove, concat, reduce, indexOf } from 'lodash'
 import Card from '~/components/Card'
 export default {
     components: { Card },
@@ -24,8 +24,8 @@ export default {
         }
     },
     methods: {
-        hasSelected(index) {
-            
+        hasSelected(item) {
+            return indexOf(this.value, item) >= 0
         },
         onChange(item, index, event) {
             let temp = [];
@@ -33,7 +33,6 @@ export default {
                 temp = concat(this.value)
                 console.info( temp)
                 remove(temp, n => n === item)
-                
                 event && temp.push(item)
                 console.info(event, index, temp)
             } else {

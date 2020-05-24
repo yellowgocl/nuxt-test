@@ -8,11 +8,11 @@
                <span class="iconfont w-5">&#xe767;</span>
                 <span>通  过</span>
             </button> -->
-        <app-button @click.native='onNevigateHandle' :enabled='enabledNevigate' activeClass='flex-1 py-2 px-4 m-1 bg-secondary'>
+        <app-button @click.native='onNevigateHandle' :rounded='true' :enabled='enabledNevigate' activeClass='flex-1 py-2 px-4 m-1 bg-secondary'>
             <span slot='prepend' class="iconfont w-5">&#xe75e;</span>
             <span>不通过</span>
         </app-button>
-        <app-button @click.native='onPositiveHandle' :enabled='enabledPositive' activeClass='flex-1 py-2 px-4 m-1 bg-primary'>
+        <app-button :icon='true' @click.native='onPositiveHandle' :enabled='enabledPositive' activeClass='flex-1 py-2 px-4 m-1'>
             <span slot='prepend' class="iconfont w-5">&#xe767;</span>
             <span>通  过</span>
         </app-button>

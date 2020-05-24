@@ -5,9 +5,10 @@
     <div class="flex border border-n1 rounded-md">
         <span class="iconfont text-4xl text-center border-r w-24">&#xe7b2;</span>
         <input class="flex-1 placeholder-n2 placeholder-opacity-50 py-2 px-4" placeholder="jane@example.com">
-      <button></button>
+      <button @click.stop='onSelectedAllHandle'>{{!selectedAll ? '全选' : '取消全选'}}</button>
     </div>
   </div>
+  <tab> </tab>
   <div class="card_box">
     <card-group :type='true' :data='cards' v-model='selected'></card-group>
   </div>
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import { concat, groupBy, partition } from 'lodash'
 import cardGroup from '@/components/CardGroup'
 import card from '@/components/Card'
 export default {
@@ -26,20 +28,25 @@ export default {
   },
   data() {
     return {
+      selectedAll: false,
+      groupByCards: {},
       selected: [],
        cards: [
-        {num: 'DCV-SSVRT-0001', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0002', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0003', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0004', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0005', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0006', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0007', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
-        {num: 'DCV-SSVRT-0008', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00' },
+        {num: 'DCV-SSVRT-0001', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
+        {num: 'DCV-SSVRT-0002', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
+        {num: 'DCV-SSVRT-0003', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 1 },
+        {num: 'DCV-SSVRT-0004', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 1 },
+        {num: 'DCV-SSVRT-0005', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
+        {num: 'DCV-SSVRT-0006', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
+        {num: 'DCV-SSVRT-0007', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
+        {num: 'DCV-SSVRT-0008', name: 'xxxxxxxxxxxxxxxxxxx' , people: '审批列表', date: '2020-05-10 09:00', status: 0 },
       ]
     }
   },
   mounted() {
+    this.selected.push(
+      this.cards[0], this.cards[1]
+    )
   },
   computed: {
     enabledAction() {
@@ -49,6 +56,14 @@ export default {
   methods: {
     onHandle(flag) {
       console.info(flag)
+    },
+    onSelectedAllHandle() {
+      this.selectedAll = !this.selectedAll
+      if (this.selectedAll) {
+        this.selected = concat(this.cards)
+      } else {
+        this.selected = []
+      }
     }
   }
 }
