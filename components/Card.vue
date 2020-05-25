@@ -4,7 +4,6 @@
        订单号: {{data.num}}
       </div>
       <div class="choose col-span-1 text-right relative">
-        
          <img v-show="!value" class=" w-4 absolute right-0" src="../assets/images/choose0.png"/>
          <img v-show="value"  class=" w-4 absolute right-0" src="../assets/images/choose1.png"/>
       </div>
