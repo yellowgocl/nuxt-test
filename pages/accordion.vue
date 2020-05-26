@@ -1,17 +1,8 @@
 <template>
     <div class="accordion">
         <div class="shadow-md">
-            <accordion title="标题1">
-                <p class="pb-5 text-white">Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.</p>
-
-                <p class="pb-5 text-white">Ut vel percipit facilisi, sea partem veritus mandamus eu, at debet deleniti eos. Iudico suscipit mel ut. Per ad habeo sadipscing concludaturque. Pri lorem fastidii in, accusam honestatis signiferumque est ut, ea eos omnium senserit reprehendunt. Eu est nibh invenire.</p>
-            </accordion>
-        </div>
-        <div class="shadow-md">
-            <accordion title="标题2">
-                <p class="pb-5 text-white">Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.</p>
-
-                <p class="pb-5 text-white">Ut vel percipit facilisi, sea partem veritus mandamus eu, at debet deleniti eos. Iudico suscipit mel ut. Per ad habeo sadipscing concludaturque. Pri lorem fastidii in, accusam honestatis signiferumque est ut, ea eos omnium senserit reprehendunt. Eu est nibh invenire.</p>
+            <accordion v-for='item in items' :key='item.id' :title="item.title">
+                <div class="content" v-html="item.content"></div>
             </accordion>
         </div>
     </div>
@@ -24,6 +15,10 @@ export default {
     },
     data() {
         return {
+            items: [
+                { title: '条目一', id: 1, content: `<div class='text-white'>我是条目一的<span class='text-green-400'>内容</span></div>` },
+                { title: '条目二', id: 2, content: `<div class='text-white'>我是条目二的<span class='text-red-400'>内容</span></div>` }
+            ]
         }
     },
     onCheck() {
