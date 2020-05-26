@@ -1,6 +1,6 @@
 <template>
 <div class="bg-n0">
-  
+  {{$route.params.id}}
   <div class="p-4 bg-white">
     <div class="flex border border-n1 rounded-md">
         <span class="iconfont text-4xl text-center border-r w-24">&#xe7b2;</span>
@@ -12,7 +12,7 @@
   <tab> </tab>
   <div class="card_box">
     <!-- <accordionGroup :data='accordions' v-model="selected"></accordionGroup>   -->
-    <card-group :type='true' :data='cards' v-model='selected'></card-group>
+    <card-group @click:item='onClickCardItem' :type='true' :data='cards' v-model='selected'></card-group>
   </div>
   <action :enabledPositive='enabledAction' :enabledNevigate='enabledAction' :onNevigate='onHandle' :onPositive='onHandle' class="action fixed bottom-0"></action>
 </div>
@@ -24,6 +24,14 @@ import { concat, groupBy, partition, remove, indexOf } from 'lodash'
 import cardGroup from '@/components/CardGroup'
 import accordionGroup from '@/components/AccordionGroup'
 import card from '@/components/Card'
+const innerPathMap = Object.freeze({
+    '1': '/d1',
+    '2': '/d2',
+    '3': '/d1',
+    '4': '/d1',
+    '5': '/d2',
+    '6': '/d2'
+})
 export default {
   // layout: 'action',
   components:{
@@ -58,15 +66,25 @@ export default {
     this.selected.push(
       this.cards[0], this.cards[1]
     )
+    this.$axios.get('/api').then(res => {
+      console.info(res)
+    })
   },
   computed: {
     enabledAction() {
+
       return this.selected && this.selected.length > 0
     }
   },
   methods: {
     onHandle(flag) {
       console.info(flag)
+    },
+    onClickCardItem(item) {
+        console.info(item)
+        let path = `/detail${innerPathMap[this.$route.params.id]}/${item.num}`
+        console.info(path)
+        this.$router.push({path})
     },
     onSelectedAllHandle() {
       this.selectedAll = !this.selectedAll

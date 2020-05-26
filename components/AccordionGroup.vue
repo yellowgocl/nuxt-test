@@ -1,7 +1,7 @@
 <template>
     <div class="card-group">
         <template v-for="(item, index) in data">
-            <accordion :key='item+index' :title='item.title' :value='selected == index' @input="onChange(item, index, $event)">
+            <accordion :key='item+index' :title='item.title' :value='hasSelected(item)' @input="onChange(item, index, $event)">
                 <component :is='item.view' :data='item'></component>
             </accordion>
         </template>
@@ -10,10 +10,12 @@
 <script>
 import { remove, concat, reduce, indexOf } from 'lodash'
 import Accordion from '~/components/Accordion'
-import { Item0, Item1, Item2 } from './accordionItem'
+// import { Item0, Item1, Item2 } from './accordionItem'
+import d1Item1 from '@/components/d1/item1'
+import d1Item2 from '@/components/d1/item2'
 export default {
     components: {
-        Item0, Item1, Item2, Accordion
+        d1Item1, d1Item2, Accordion
     },
     props: {
         type: { type: Boolean, default: () => false },

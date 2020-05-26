@@ -1,8 +1,8 @@
 <template>
     <div class="card-group">
         <template v-for="(item, index) in data">
-            <card v-if='!!type' :key='item+index' :data='item' :value="hasSelected(item)" @input="onChange(item, index, $event)"></card>
-            <card v-else :key='item+index' :data='item' :value='selected == index' @input="onChange(item, index, $event)"></card>
+            <card v-if='!!type' :key='item+index' :data='item' :value="hasSelected(item)" @input="onChange(item, index, $event)" @click='onClickItem'></card>
+            <card v-else :key='item+index' :data='item' :value='selected == index' @input="onChange(item, index, $event)" @click='onClickItem'></card>
         </template>
     </div>
 </template>
@@ -40,6 +40,9 @@ export default {
                 temp = event ? [this.data[index]] : []
             }
             this.$emit('input', temp)
+        },
+        onClickItem(item) {
+            this.$emit('click:item', item)
         }
     }
 }

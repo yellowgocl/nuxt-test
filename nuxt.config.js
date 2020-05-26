@@ -4,6 +4,15 @@ export default {
   /*
   ** Headers of the page
   */
+  proxy:{
+    '/api/': {
+      target: 'http://www.baidu.com',
+      pathRewrite: {
+        '^/api/': '/'
+      },
+      changeOrign: true
+    }
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -42,6 +51,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
   /*
   ** Build configuration

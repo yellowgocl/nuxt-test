@@ -1,9 +1,9 @@
 <template>
-  <div class="card bg-white rounded-md grid grid-cols-10 gap-1 m-4 p-3 text-sm"  @click.stop="onActive">
+  <div class="card bg-white rounded-md grid grid-cols-10 gap-1 m-4 p-3 text-sm" @click.stop="toDetail">
       <div class="number col-span-9 text-primary text-base">
        订单号: {{data.num}}
       </div>
-      <div class="choose col-span-1 text-right relative">
+      <div class="choose col-span-1 text-right relative"  @click.stop="onActive">
          <img v-show="!value" class=" w-4 absolute right-0" src="../assets/images/choose0.png"/>
          <img v-show="value"  class=" w-4 absolute right-0" src="../assets/images/choose1.png"/>
       </div>
@@ -33,6 +33,12 @@ export default {
     methods: {
       onActive() {
         this.$emit('input', (!this.value))
+      },
+      toDetail(){
+        this.$emit('click', this.data)
+        // this.$router.push({
+        //   path: `/inner1/${this.data.num}`
+        // })
       }
     }
 }

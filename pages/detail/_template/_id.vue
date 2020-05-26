@@ -1,6 +1,8 @@
 <template>
   <div class="accordion">
-        <div class="m-4">
+    {{$route.params.template}}-{{$route.params.id}}
+    <component :is='$route.params.template' :id='$route.params.id'></component>
+        <!-- <div class="m-4">
             <accordion title="标题1">
               <div class="list_name">
                 电脑端查看效果更佳
@@ -30,11 +32,13 @@
               </div>
               
             </accordion>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
+import d1 from '@/components/detail/d1'
+import d2 from '@/components/detail/d2'
 import accordion from '@/components/Accordion'
 import attachment from '@/components/Attachment'
 import lrStructure_lb from '@/components/LRStructure_LB'
@@ -50,7 +54,8 @@ export default {
     lrStructure_Gray,
     lrStructure_Blur,
     lrStructure_Red,
-    lrStructure_Red_B
+    lrStructure_Red_B,
+    d1, d2
   },
   data() {
     return {
