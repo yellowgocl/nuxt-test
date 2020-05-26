@@ -6,12 +6,13 @@
         <span class="iconfont text-4xl text-center border-r w-24">&#xe7b2;</span>
         <input class="flex-1 placeholder-n2 placeholder-opacity-50 py-2 px-4" placeholder="jane@example.com">
       <button @click.stop='onSelectedAllHandle'>{{!selectedAll ? '全选' : '取消全选'}}</button>
+      <button @click.stop='onSelectedReverseHandle'>反选</button>
     </div>
   </div>
   <tab> </tab>
   <div class="card_box">
-    <accordionGroup :data='accordions' v-model="selected"></accordionGroup>  
-    <!-- <card-group :type='true' :data='cards' v-model='selected'></card-group> -->
+    <!-- <accordionGroup :data='accordions' v-model="selected"></accordionGroup>   -->
+    <card-group :type='true' :data='cards' v-model='selected'></card-group>
   </div>
   <action :enabledPositive='enabledAction' :enabledNevigate='enabledAction' :onNevigate='onHandle' :onPositive='onHandle' class="action fixed bottom-0"></action>
 </div>
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import { concat, groupBy, partition } from 'lodash'
+import { concat, groupBy, partition, remove, indexOf } from 'lodash'
 import cardGroup from '@/components/CardGroup'
 import accordionGroup from '@/components/AccordionGroup'
 import card from '@/components/Card'
@@ -74,6 +75,12 @@ export default {
       } else {
         this.selected = []
       }
+    },
+    onSelectedReverseHandle() {
+      let temp = concat(this.cards)
+      remove(temp, (n) => indexOf(this.selected, n) >= 0)
+      console.info(temp)
+      this.selected = temp
     }
   }
 }
