@@ -29,6 +29,9 @@ export default {
       ]
     }
   },
+  mounted() {
+    this.$axios.get('/api/login.do', { params:{ method: 'getLoginRandomNum' }})
+  },
   methods: {
     getImage(url){
       return require(url)

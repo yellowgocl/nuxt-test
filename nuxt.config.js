@@ -1,18 +1,15 @@
-
+const { axios, proxy } = require("./config");
+const env = require("./env");
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
-  proxy:{
-    '/api/': {
-      target: 'http://www.baidu.com',
-      pathRewrite: {
-        '^/api/': '/'
-      },
-      changeOrign: true
-    }
+  server: {
+    port: 3002
   },
+  axios,
+  proxy,
   head: {
     title: process.env.npm_package_name || '',
     meta: [
