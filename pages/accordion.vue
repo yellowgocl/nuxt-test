@@ -1,33 +1,71 @@
 <template>
-    <div class="accordion">
-        <div class="shadow-md">
-            <accordion title="标题1">
-                <p class="pb-5 text-white">Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.</p>
-
-                <p class="pb-5 text-white">Ut vel percipit facilisi, sea partem veritus mandamus eu, at debet deleniti eos. Iudico suscipit mel ut. Per ad habeo sadipscing concludaturque. Pri lorem fastidii in, accusam honestatis signiferumque est ut, ea eos omnium senserit reprehendunt. Eu est nibh invenire.</p>
+    <div>
+        <div class='flex '><input type="text" v-model='tempKeyword' /><button @click.stop='onSearch'>搜索</button></div>
+    <div class="accordion" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
+        <div class="shadow-md" v-for='(item, index) in list' :key='item.title+index'>
+            <accordion :title="item.title">
+                <p class="pb-5 text-white">{{item.content}}</p>
             </accordion>
         </div>
-        <div class="shadow-md">
-            <accordion title="标题2">
-                <p class="pb-5 text-white">Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.</p>
-
-                <p class="pb-5 text-white">Ut vel percipit facilisi, sea partem veritus mandamus eu, at debet deleniti eos. Iudico suscipit mel ut. Per ad habeo sadipscing concludaturque. Pri lorem fastidii in, accusam honestatis signiferumque est ut, ea eos omnium senserit reprehendunt. Eu est nibh invenire.</p>
-            </accordion>
-        </div>
+    </div>
     </div>
 </template>
 <script>
 import Accordion from '@/components/Accordion'
+import { stubObject, times, map } from 'lodash'
 export default {
     components: {
         Accordion
     },
     data() {
         return {
+            keyword: '',
+            tempKeyword: '',
+            page: 0,
+            loading: false,
+            list: [
+                { title: '标题一', content: 'Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.' }
+            ]
         }
     },
     onCheck() {
+        
+    },
+    methods: {
+        fetchData() {
+            this.loading = true
+            this.page++
+            // return this.$axios.get('', { params: { page:this.page, size: 10, keyword: this.keyword } })
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let temp = times(Math.abs(Math.random() * 10 + 1), stubObject)
+                    this.loading = false
+                    resolve({
+                        code: 200, message: 'success', data: map(temp, o => ({ title: '标题一', content: 'Lorem ipsum dolor sit amet, ut alii voluptaria est, ad illum inimicus deterruisset eam. His eu bonorum adipisci definiebas, no vis nostrud conclusionemque. Ad his virtute accusata, pro habemus singulis temporibus ut, ne bonorum dolores euripidis quo. No nam amet erant intellegebat. Rationibus instructior id pri, vis case abhorreant ea, id sea meis feugiat.' }))
+                    })
+                }, 1000)
+            }).then(res => {
+                this.list = this.list.concat(res.data)
+                return this.list
+            })
+        },
+        onSearch() {
+            if (this.keyword != this.tempKeyword) {
+                this.page = 0;
+                this.list = []
+                this.keyword = this.tempKeyword
+                this.fetchData()
+            }
+        },
+        loadMore() {
+            this.fetchData()
+            // this.fetchData().then(res => {
+            //     this.list = this.list.concat(res.data)
+            //     console.info(res)
+            // }, rej => {
 
+            // })
+        }
     }
 }
 </script>

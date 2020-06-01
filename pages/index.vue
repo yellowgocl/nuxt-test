@@ -30,7 +30,9 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('/api/login.do', { params:{ method: 'getLoginRandomNum' }})
+    this.$axios.get('/api/login.do', { params:{ method: 'getLoginRandomNum' }}).then(res => {
+      console.info(res)
+    })
   },
   methods: {
     getImage(url){

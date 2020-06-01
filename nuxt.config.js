@@ -35,7 +35,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/components.js'
+    '~/plugins/components.js', { src: '~/plugins/infinite-scroll.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules

@@ -15,7 +15,8 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
-    "vue-awesome-swiper": "^4.1.1"
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-infinite-scroll": "^2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0"
