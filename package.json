@@ -8,6 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "mock": "PORT=3722 mocker ./api/mock",
     "generate": "nuxt generate"
   },
   "dependencies": {
@@ -19,6 +20,8 @@
     "vue-infinite-scroll": "^2.0.2"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^1.0.0"
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "mocker-api": "^2.0.4",
+    "mockjs": "^1.1.0"
   }
 }

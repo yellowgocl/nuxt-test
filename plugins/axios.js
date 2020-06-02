@@ -8,12 +8,13 @@ export default ({ $axios, redirect }) => {
     })
     $axios.onResponse(response => {
         let data = response.data
+        return data
         // console.info(response)
-        if (data && data.code == 200) {
-            return data.data
-        } else {
-            return Promise.reject(data)
-        }
+        // if (data && data.code == 200) {
+        //     return data.data
+        // } else {
+        //     return Promise.reject(data)
+        // }
     })
     api.setClient($axios)
 }

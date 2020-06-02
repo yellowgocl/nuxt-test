@@ -36,6 +36,24 @@ const mod = {
                 'price|100-999.1-10': 100, 
             }
         }))
+    },
+    GET_CONTRACT: (req, res) => {
+        return res.json(mockjs.mock({
+            total: 10,
+            totalRecords: 0,
+            startIndex: 0,
+            start: 0,
+            limit: 0,
+            pageSize: 10,
+            totalCount: 0,
+            'rows|5-10': [
+                {
+                    scontractNo: '@id',
+                    scontractName: '@cword',
+                    ssupplierName: '@cword'
+                }
+            ]
+        }))
     }
 }
 

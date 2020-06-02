@@ -1,5 +1,5 @@
 <template>
-    <div class="d1-item2">{{data.name}}</div>
+    <nuxt-link to='/goods/123' class="d1-item2">{{data.name}}</nuxt-link>
 </template>
 <script>
 export default {
