@@ -23,7 +23,7 @@
     "@nuxtjs/tailwindcss": "^1.0.0",
     "cross-env": "^7.0.2",
     "push-dir": "^0.4.1",
-    "mocker-api": "^2.0.4",
+    "mocker-api": "^2.9.5",
     "mockjs": "^1.1.0"
   }
 }
